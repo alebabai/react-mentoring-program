@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "ReactJS Global Mentoring Program Q42019 [Ideveloper]",
   "main": "src/index.js",
-  "dependencies": {
-    "express": "^4.17.1"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
     "start": "node src/index.js",
