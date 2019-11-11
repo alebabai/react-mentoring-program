@@ -5,11 +5,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     entry: {
-        main: resolve(__dirname, 'src', 'index.js'),
+        main: resolve('src/index.js'),
     },
 
     output: {
-        path: resolve(__dirname, 'dist'),
+        path: resolve('dist'),
         filename: '[name].bundle.[hash].js',
         chunkFilename: '[name].bundle.[hash].js',
     },
@@ -34,7 +34,7 @@ module.exports = {
         ]
     },
 
-    context: resolve(__dirname, 'src'),
+    context: resolve('src'),
 
     resolve: {
         extensions: ['.json', '.jsx', '.js', '.html'],
@@ -50,7 +50,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: resolve(__dirname, 'src', 'index.html'),
+            template: resolve('src/index.html'),
         }),
     ],
 }
