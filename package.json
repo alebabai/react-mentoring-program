@@ -21,7 +21,7 @@
     "webpack-merge": "^4.2.2"
   },
   "scripts": {
-    "start": "webpack-dev-server --config webpack/webpack.config.dev.js --hot --open --progress",
+    "start": "webpack-dev-server --config webpack/webpack.config.dev.js --progress",
     "build:dev": "webpack --config webpack/webpack.config.dev.js",
     "build:prod": "webpack --config webpack/webpack.config.prod.js",
     "build": "npm run build:prod",
