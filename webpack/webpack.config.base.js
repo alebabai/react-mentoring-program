@@ -50,7 +50,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: resolve('src/index.html'),
+            template: resolve('public/index.html'),
         }),
     ],
 }
