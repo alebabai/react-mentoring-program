@@ -1,10 +1,12 @@
 import React from 'react'
 
-import { Title } from '../components'
+import { Header, Content, Footer } from '../components'
 
 export const App = () => (
     <div className='app'>
-        <Title value='Hello' />
+        <Header />
+        <Content />
+        <Footer />
     </div>
 )
 
