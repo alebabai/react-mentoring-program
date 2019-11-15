@@ -1,12 +1,14 @@
 import React from 'react'
 
-import { Header, Content, Footer } from '../components'
+import { Header, Content, Footer, ErrorBoundary } from '../components'
 
 export const App = () => (
     <div className='app'>
-        <Header />
-        <Content />
-        <Footer />
+        <ErrorBoundary>
+            <Header />
+            <Content />
+            <Footer />
+        </ErrorBoundary>
     </div>
 )
 
