@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const ResultsEmpty = () => (
-    <h1>No films found</h1>
+    <p className="results-empty">No Movies found</p>
 )
 
 export default ResultsEmpty
