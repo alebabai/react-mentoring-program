@@ -1,10 +1,8 @@
 import React from 'react'
 
-import Logo from '../../Logo'
-
-export const Footer = () => (
+export const Footer = ({ children }) => (
     <footer>
-        <Logo value="netflixroulette" />
+        {children}
     </footer>
 )
 
