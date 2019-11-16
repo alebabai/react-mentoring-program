@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Header, Content, Footer } from '../../components/layout'
-import { Logo, Title, Search, ResultsViewer } from '../../components'
+import { Header, Content, Footer } from 'components/layout'
+import { Logo, Title, Search, ResultsViewer } from 'components'
 
 const mockedData = [{
     id: '1',

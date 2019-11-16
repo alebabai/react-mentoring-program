@@ -1,8 +1,8 @@
 import React from 'react'
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'
 
-import { ErrorBoundary } from '../components'
-import { HomePage, MoviePage, ErrorPage } from '../pages'
+import { ErrorBoundary } from 'components'
+import { HomePage, MoviePage, ErrorPage } from 'pages'
 
 export const App = () => (
     <div className='app'>

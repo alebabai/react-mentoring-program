@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Header, Content, Footer } from '../../components/layout'
-import { Logo, SearchLink, Movie, ResultsViewer } from '../../components'
+import { Header, Content, Footer } from 'components/layout'
+import { Logo, SearchLink, Movie, ResultsViewer } from 'components'
 
 export const MoviePage = () => (
     <>
