@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ResultsViewer from '../ResultsViewer'
+import ResultsViewer from '../../ResultsViewer'
 
 const mockedData = [{
     id: '1',

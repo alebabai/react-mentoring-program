@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Logo from '../Logo'
-import Title from '../Title'
-import Search from '../Search'
-import SearchLink from '../SearchLink'
-import Movie from '../Movie'
+import Logo from '../../Logo'
+import Title from '../../Title'
+import Search from '../../Search'
+import SearchLink from '../../SearchLink'
+import Movie from '../../Movie'
 
 
 const DefaultHeaderContent = () => (
