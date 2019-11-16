@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { ErrorPage } from '../../pages'
+
 export class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props)
@@ -7,7 +9,7 @@ export class ErrorBoundary extends React.Component {
     }
 
     static getDerivedStateFromError(error) {
-        return { hasError: true }
+        return { hasError: true, message: error.message }
     }
 
     componentDidCatch(error, errorInfo) {
@@ -16,7 +18,7 @@ export class ErrorBoundary extends React.Component {
 
     render() {
         if (this.state.hasError) {
-            return <h1>Something went wrong</h1>
+            return <ErrorPage message="Something went wrong" description={this.state.message} />
         }
 
         return this.props.children
