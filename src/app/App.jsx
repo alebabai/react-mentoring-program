@@ -4,8 +4,10 @@ import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'
 import { ErrorBoundary } from 'components'
 import { HomePage, MoviePage, ErrorPage } from 'pages'
 
+import styles from './styles.css'
+
 export const App = () => (
-    <div className='app'>
+    <div className={styles.app}>
         <ErrorBoundary>
             <Router>
                 <Switch>

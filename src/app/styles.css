@@ -1,0 +1,8 @@
+body {
+    background-color: #555555;
+}
+
+.app {
+    background-color: #424242;
+    box-shadow: 0 2px 34px 0 rgba(0,0,0,0.27);
+}

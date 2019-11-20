@@ -1,7 +1,9 @@
 import React from 'react'
 
+import styles from './styles.css'
+
 export const Logo = ({ value }) => (
-    <p className="logo">{value}</p>
+    <p className={styles.logo}>{value}</p>
 )
 
 export default Logo
