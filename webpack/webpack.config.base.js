@@ -37,7 +37,11 @@ module.exports = {
     context: resolve('src'),
 
     resolve: {
-        extensions: ['.json', '.jsx', '.js', '.html'],
+        alias: {
+            components: resolve('src/components/'),
+            pages: resolve('src/pages/')
+        },
+        extensions: ['.jsx', '.js'],
     },
 
     optimization: {

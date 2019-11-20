@@ -9,5 +9,6 @@ module.exports = merge(baseConfig, {
         contentBase: './dist',
         hot: true,
         open: true,
+        historyApiFallback: true,
     },
 })
