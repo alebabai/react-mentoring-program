@@ -1,9 +1,9 @@
 import React from 'react'
 
-import styles from './styles.css'
+import {root} from './style.css'
 
 export const Title = ({ value }) => (
-    <p className={styles.title}>{value}</p>
+    <p className={root}>{value}</p>
 )
 
 export default Title
