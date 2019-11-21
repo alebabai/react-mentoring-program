@@ -34,13 +34,18 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    'style-loader',
+                    {
+                        loader: 'style-loader',
+                        options: {
+                            injectType: 'singletonStyleTag',
+                        },
+                    },
                     {
                         loader: 'css-loader',
                         options: {
+                            localsConvention: 'camelCaseOnly',
                             modules: {
                                 mode: 'local',
-                                localIdentName: '[local]-[hash:base64]',
                             }
                         },
                     },
