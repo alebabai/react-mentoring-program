@@ -1,5 +1,4 @@
 import axios from 'axios'
-import qs from 'qs'
 
 const processResponse = ({ data }) => data
 const transformMovie = ({
@@ -34,10 +33,6 @@ class Api {
     constructor({ baseUrl }) {
         this.client = axios.create({
             baseURL: baseUrl,
-            paramsSerializer: params => qs.stringify(params, {
-                parseArrays: true,
-                arrayFormat: 'comma',
-            })
         })
     }
 
