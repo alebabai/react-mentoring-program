@@ -12,12 +12,8 @@ export const App = () => (
         <ErrorBoundary>
             <Router>
                 <Switch>
-                    <Route exact path='/'>
-                        <HomePage />
-                    </Route>
-                    <Route path='/movie'>
-                        <MoviePage />
-                    </Route>
+                    <Route exact path={['/', '/movies']} component={HomePage} />
+                    <Route path='/movies/:id' component={MoviePage} />
                     <Route>
                         <ErrorPage message="Page not found" />
                     </Route>

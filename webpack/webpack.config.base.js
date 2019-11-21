@@ -2,6 +2,7 @@ const { resolve } = require('path')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const DotenvPlugin = require('dotenv-webpack')
 
 module.exports = {
     entry: {
@@ -59,7 +60,8 @@ module.exports = {
     resolve: {
         alias: {
             components: resolve('src/components/'),
-            pages: resolve('src/pages/')
+            pages: resolve('src/pages/'),
+            services: resolve('src/services/'),
         },
         extensions: ['.jsx', '.js'],
     },
@@ -76,5 +78,6 @@ module.exports = {
             filename: 'index.html',
             template: resolve('public/index.html'),
         }),
+        new DotenvPlugin(),
     ],
 }
