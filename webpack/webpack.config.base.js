@@ -31,6 +31,26 @@ module.exports = {
                     },
                 ],
             },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: 'style-loader',
+                        options: {
+                            injectType: 'singletonStyleTag',
+                        },
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            localsConvention: 'camelCaseOnly',
+                            modules: {
+                                mode: 'local',
+                            }
+                        },
+                    },
+                ],
+            },
         ]
     },
 

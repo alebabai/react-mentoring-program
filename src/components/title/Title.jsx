@@ -1,7 +1,9 @@
 import React from 'react'
 
+import {root} from './style.css'
+
 export const Title = ({ value }) => (
-    <h1>{value}</h1>
+    <p className={root}>{value}</p>
 )
 
 export default Title
