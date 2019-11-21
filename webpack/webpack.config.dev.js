@@ -10,6 +10,5 @@ module.exports = merge(baseConfig, {
         hot: true,
         open: true,
         historyApiFallback: true,
-        writeToDisk: true,
     },
 })
