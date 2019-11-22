@@ -38,7 +38,7 @@ export class MoviePage extends React.PureComponent {
                     <Movie {...this.state.movie} />
                 </Header>
                 <Content>
-                    <ResultsViewer items={this.state.movies} />
+                    <ResultsViewer isSearch={false} summary={`Films by following genres: ${this.state.movie.genres.join(', ')}`} items={this.state.movies} />
                 </Content>
                 <Footer>
                     <Logo value="netflixroulette" />

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import ResultItem from './ResultItem'
-import ResultsCount from './ResultsCount'
+import ResultsSummary from './ResultsSummary'
 import ResultsSort from './ResultsSort'
 
 const defaultCategories = [
@@ -15,10 +15,10 @@ const defaultCategories = [
     },
 ]
 
-export const ResultsViewer = ({ items = [], categories = defaultCategories }) => (
+export const ResultsViewer = ({ isSearch = true, summary, items = [], categories = defaultCategories }) => (
     <div className="results-viewer">
         <div className="results-header">
-            <ResultsCount value={items.length} />
+            {isSearch && <ResultsSummary number={items.length} text={summary} />}
             <ResultsSort categories={categories} />
         </div>
         <div className="results-body">

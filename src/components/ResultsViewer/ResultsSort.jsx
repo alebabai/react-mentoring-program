@@ -6,7 +6,7 @@ const ResultsFilterCategory = ({ fieldName, title }) => (
 
 export const ResultsFilter = ({ categories = [] }) => (
     <div className="results-filter">
-        <h3>results by</h3>
+        <h3>Sort by</h3>
         <div className="results-filter-categories">
             {categories.map(ResultsFilterCategory)}
         </div>
