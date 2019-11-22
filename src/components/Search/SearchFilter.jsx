@@ -4,7 +4,7 @@ const SearchFilterCategory = ({ fieldName, title }) => (
     <div key={fieldName} className="search-filter-category">{title}</div>
 )
 
-export const SearchFilter = ({ categories = [{fieldName:"", title:'as'}] }) => (
+export const SearchFilter = ({ categories = [] }) => (
     <div className="search-filter">
         <h3>Search by</h3>
         <div className="search-filter-categories">

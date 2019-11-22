@@ -1,5 +1,6 @@
 export * from './Title'
 export * from './Logo'
+export * from './Filter'
 export * from './Search'
 export * from './SearchLink'
 export * from './Movie'
