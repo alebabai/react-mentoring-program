@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const DotenvPlugin = require('dotenv-webpack')
 
+const filenamePattern = '[name].bundle.[hash]'
+
 module.exports = {
     entry: {
         main: resolve('src/index.js'),
@@ -11,8 +13,8 @@ module.exports = {
 
     output: {
         path: resolve('dist'),
-        filename: '[name].bundle.[hash].js',
-        chunkFilename: '[name].bundle.[hash].js',
+        filename: `${filenamePattern}.js`,
+        chunkFilename: `${filenamePattern}.js`,
     },
 
     module: {
