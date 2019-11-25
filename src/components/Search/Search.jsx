@@ -1,17 +1,18 @@
 import React from 'react'
 
+import { Filter } from 'components'
+
 import SearchInput from './SearchInput'
 import SearchButton from './SearchButton'
-import SearchFilter from './SearchFilter'
 
-const defaultCategories = [
+const filterTabs = [
     {
-        fieldName: 'title',
-        title: 'Title'
+        id: 'title',
+        title: 'Title',
     },
     {
-        fieldName: 'genre',
-        title: 'Genre'
+        id: 'genre',
+        title: 'Genre',
     },
 ]
 
@@ -21,7 +22,7 @@ export class Search extends React.PureComponent {
             <div className="search">
                 <SearchInput />
                 <SearchButton />
-                <SearchFilter categories={defaultCategories} />
+                <Filter title="Search by" defaultActiveTab="title" tabs={filterTabs} />
             </div>
         )
     }
