@@ -3,8 +3,8 @@ import classNames from 'classnames'
 
 import styles from './style.css'
 
-const FilterTab = ({ id, title, active, handler }) => (
-    <div key={id} className={classNames(styles.tab, { [styles.tabActive]: active })} onClick={() => handler(id)}>{title || id}</div>
+const FilterTab = ({ id, title = id, active, handler }) => (
+    <div key={id} className={classNames(styles.tab, { [styles.tabActive]: active })} onClick={() => handler(id)}>{title}</div>
 )
 
 export const Filter = ({ title, defaultActiveTab, tabs = [] }) => {
