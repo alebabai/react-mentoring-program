@@ -1,25 +1,26 @@
 import React from 'react'
 
-import ResultItem from './ResultItem'
-import ResultsCount from './ResultsCount'
-import ResultsSort from './ResultsSort'
+import { Filter } from 'components'
 
-const defaultCategories = [
+import ResultItem from './ResultItem'
+import ResultsSummary from './ResultsSummary'
+
+const filterTabs = [
     {
-        fieldName: 'title',
-        title: 'Title'
+        id: 'release_date',
+        title: 'Release date',
     },
     {
-        fieldName: 'genre',
-        title: 'Genre'
+        id: 'rating',
+        title: 'Rating',
     },
 ]
 
-export const ResultsViewer = ({ items = [], categories = defaultCategories }) => (
+export const ResultsViewer = ({ isSearch = true, summary, items = [] }) => (
     <div className="results-viewer">
         <div className="results-header">
-            <ResultsCount value={items.length} />
-            <ResultsSort categories={categories} />
+            {isSearch && <ResultsSummary number={items.length} text={summary} />}
+            <Filter title="Sort by" defaultActiveTab="title" tabs={filterTabs} />
         </div>
         <div className="results-body">
             {items.map(ResultItem) || <ResultsEmpty />}

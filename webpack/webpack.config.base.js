@@ -2,6 +2,9 @@ const { resolve } = require('path')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const DotenvPlugin = require('dotenv-webpack')
+
+const filenamePattern = '[name].bundle.[hash]'
 
 module.exports = {
     entry: {
@@ -10,8 +13,8 @@ module.exports = {
 
     output: {
         path: resolve('dist'),
-        filename: '[name].bundle.[hash].js',
-        chunkFilename: '[name].bundle.[hash].js',
+        filename: `${filenamePattern}.js`,
+        chunkFilename: `${filenamePattern}.js`,
     },
 
     module: {
@@ -59,7 +62,8 @@ module.exports = {
     resolve: {
         alias: {
             components: resolve('src/components/'),
-            pages: resolve('src/pages/')
+            pages: resolve('src/pages/'),
+            services: resolve('src/services/'),
         },
         extensions: ['.jsx', '.js'],
     },
@@ -76,5 +80,6 @@ module.exports = {
             filename: 'index.html',
             template: resolve('public/index.html'),
         }),
+        new DotenvPlugin(),
     ],
 }

@@ -2,29 +2,41 @@ import React from 'react'
 
 import { Header, Content, Footer } from 'components/layout'
 import { Logo, Title, Search, ResultsViewer } from 'components'
+import { api } from 'services'
 
-const mockedData = [{
-    id: '1',
-    imageUrl: null,
-    title: 'Fight Club',
-    genre: 'Action',
-    releaseDate: '1995'
-}]
+export class HomePage extends React.PureComponent {
 
-export const HomePage = () => (
-    <>
-        <Header>
-            <Logo value="netflixroulette" />
-            <Title value="Find your movie" />
-            <Search />
-        </Header>
-        <Content>
-            <ResultsViewer items={mockedData}/>
-        </Content>
-        <Footer>
-            <Logo value="netflixroulette" />
-        </Footer>
-    </>
-)
+    constructor(props) {
+        super(props)
+        this.state = {
+            movies: []
+        }
+    }
+
+    componentDidMount() {
+        api.getMovies({}).then(({ data }) => this.setState({
+            movies: data
+        }))
+    }
+
+    render() {
+        return (
+            <>
+                <Header>
+                    <Logo value="netflixroulette" />
+                    <Title value="Find your movie" />
+                    <Search />
+                </Header>
+                <Content>
+                    <ResultsViewer isSearch={false} items={this.state.movies} />
+                </Content>
+                <Footer>
+                    <Logo value="netflixroulette" />
+                </Footer>
+            </>
+        )
+    }
+
+}
 
 export default HomePage
