@@ -20,7 +20,7 @@ export const ResultsViewer = ({ isSearch = true, summary, items = [] }) => (
     <div className="results-viewer">
         <div className="results-header">
             {isSearch && <ResultsSummary number={items.length} text={summary} />}
-            <Filter title="Sort by" defaultActiveTab="title" tabs={filterTabs} />
+            <Filter title="Sort by" defaultActiveTab="release_date" tabs={filterTabs} />
         </div>
         <div className="results-body">
             {items.map(ResultItem) || <ResultsEmpty />}
