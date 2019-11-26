@@ -8,7 +8,6 @@ module.exports = merge(baseConfig, {
     devServer: {
         contentBase: './dist',
         hot: true,
-        open: true,
         historyApiFallback: true,
     },
 })
