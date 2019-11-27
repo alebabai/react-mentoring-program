@@ -4,9 +4,9 @@ import { updateParams } from 'store/actions/search'
 
 import Component from './Search'
 
-const mapStateToProps = ({ search: { query } }) => ({ query })
+const mapStateToProps = ({ search }) => ({ ...search })
 const mapDispatchToProps = {
-    updateQuery: (query) => updateParams({ query })
+    updateParams
 }
 
 export const Search = connect(mapStateToProps, mapDispatchToProps)(Component)

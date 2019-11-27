@@ -1,8 +1,8 @@
 const defaultState = {
     query: '',
-    sortBy: undefined,
+    sortBy: 'release_date',
     sortOrder: 'asc',
-    searchBy: undefined,
+    searchBy: 'title',
     filter: undefined,
     offset: undefined,
     limit: undefined,

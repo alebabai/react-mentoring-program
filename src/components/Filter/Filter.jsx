@@ -7,9 +7,14 @@ const FilterTab = ({ id, title = id, active, onClick }) => (
     <div key={id} className={classNames(styles.tab, { [styles.tabActive]: active })} onClick={onClick}>{title}</div>
 )
 
-export const Filter = ({ title = 'Filter by', defaultActiveTab, tabs = [] }) => {
+export const Filter = ({ title = 'Filter by', defaultActiveTab, tabs = [], onChange }) => {
     const [activeTab, setState] = useState(defaultActiveTab)
-    const makeHandler = id => () => setState(id)
+    const makeHandler = id => () => {
+        setState(id)
+        if (typeof onChange === 'function') {
+            onChange(id)
+        }
+    }
     return (
         <div className={styles.root}>
             <p className={styles.title}>{title}</p>

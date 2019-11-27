@@ -20,7 +20,7 @@ export const ResultsViewer = ({ showSummary = true, summaryText, items = [] }) =
     <div className="results-viewer">
         <div className="results-header">
             {showSummary && <ResultsSummary number={items.length} text={summaryText} />}
-            <Filter title="Sort by" defaultActiveTab="release_date" tabs={filterTabs} />
+            <Filter title="Sort by" defaultActiveTab={filterTabs[0].id} tabs={filterTabs} />
         </div>
         <div className="results-body">
             {items.map(ResultItem) || <ResultsEmpty />}

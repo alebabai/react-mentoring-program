@@ -16,11 +16,11 @@ const filterTabs = [
     },
 ]
 
-export const Search = ({ query, updateQuery }) => (
+export const Search = ({ query, updateParams, searchBy }) => (
     <div className="search">
-        <SearchInput onChange={e => updateQuery(e.currentTarget.value)} value={query} />
+        <SearchInput onChange={query => updateParams({ query })} value={query} />
         <SearchButton />
-        <Filter title="Search by" defaultActiveTab="title" tabs={filterTabs} />
+        <Filter title="Search by" defaultActiveTab={searchBy} tabs={filterTabs} onChange={tabId => updateParams({ searchBy: tabId })} />
     </div>
 )
 
