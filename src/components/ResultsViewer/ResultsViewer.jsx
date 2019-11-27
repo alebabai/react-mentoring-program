@@ -16,10 +16,10 @@ const filterTabs = [
     },
 ]
 
-export const ResultsViewer = ({ isSearch = true, summary, items = [] }) => (
+export const ResultsViewer = ({ showSummary = true, summaryText, items = [] }) => (
     <div className="results-viewer">
         <div className="results-header">
-            {isSearch && <ResultsSummary number={items.length} text={summary} />}
+            {showSummary && <ResultsSummary number={items.length} text={summaryText} />}
             <Filter title="Sort by" defaultActiveTab="release_date" tabs={filterTabs} />
         </div>
         <div className="results-body">

@@ -28,7 +28,7 @@ export class HomePage extends React.PureComponent {
                     <Search />
                 </Header>
                 <Content>
-                    <ResultsViewer isSearch={false} items={this.state.movies} />
+                    <ResultsViewer showSummary={false} items={this.state.movies} />
                 </Content>
                 <Footer>
                     <Logo value="netflixroulette" />

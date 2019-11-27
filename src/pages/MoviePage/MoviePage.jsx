@@ -8,8 +8,10 @@ export class MoviePage extends React.PureComponent {
     constructor(props) {
         super(props)
         this.state = {
-            movie: {},
-            movies: []
+            movie: {
+                genres: [],
+            },
+            movies: [],
         }
     }
 
@@ -38,7 +40,7 @@ export class MoviePage extends React.PureComponent {
                     <Movie {...this.state.movie} />
                 </Header>
                 <Content>
-                    <ResultsViewer isSearch={false} summary={`Films by following genres: ${this.state.movie.genres.join(', ')}`} items={this.state.movies} />
+                    <ResultsViewer showSummary={true} summaryText={`Films by following genres: ${this.state.movie.genres.join(', ')}`} items={this.state.movies} />
                 </Content>
                 <Footer>
                     <Logo value="netflixroulette" />
