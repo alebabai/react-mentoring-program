@@ -16,16 +16,12 @@ const filterTabs = [
     },
 ]
 
-export class Search extends React.PureComponent {
-    render() {
-        return (
-            <div className="search">
-                <SearchInput />
-                <SearchButton />
-                <Filter title="Search by" defaultActiveTab="title" tabs={filterTabs} />
-            </div>
-        )
-    }
-}
+export const Search = ({ query, updateQuery }) => (
+    <div className="search">
+        <SearchInput onChange={e => updateQuery(e.currentTarget.value)} value={query} />
+        <SearchButton />
+        <Filter title="Search by" defaultActiveTab="title" tabs={filterTabs} />
+    </div>
+)
 
 export default Search
