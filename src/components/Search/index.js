@@ -1,2 +1,2 @@
-export { default } from './Search.container'
-export * from './Search.container'
+export { default } from './Search'
+export * from './Search'
