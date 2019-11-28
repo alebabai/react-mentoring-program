@@ -21,7 +21,9 @@ const loadingError = error => ({
     error: true
 })
 
-export const loadMany = options => (dispatch, _, { api }) => {
+export const loadMany = () => (dispatch, getState, { api }) => {
+    const { fetch, search } = getState()
+    const options = search.active ? { ...fetch, ...search } : { ...fetch }
     dispatch(requestData(options))
     return api.getMany(options)
         .then(({ items, offset, limit, total }) => {
@@ -37,7 +39,7 @@ export const loadOne = id => (dispatch, getState, { api }) => {
         .then(item => {
             dispatch(loadedOne(item))
             dispatch(updateFetchParams({ filter: item.genres.join(',') }))
-            dispatch(loadMany(getState().fetch))
+            dispatch(loadMany())
         })
         .catch(error => dispatch(loadingError(error)))
 }

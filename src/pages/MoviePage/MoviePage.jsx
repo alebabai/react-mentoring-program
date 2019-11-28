@@ -5,7 +5,8 @@ import { Logo, SearchLink, Movie, ResultsViewer } from 'components'
 
 export class MoviePage extends React.PureComponent {
     componentDidMount() {
-        const { match: { params: { id } }, loadOne } = this.props
+        const { match: { params: { id } }, loadOne, resetSearchParams } = this.props
+        resetSearchParams()
         loadOne(id)
     }
 

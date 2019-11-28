@@ -4,3 +4,7 @@ export const updateFetchParams = params => ({
         ...params
     }
 })
+
+export const resetFetchParams = () => ({
+    type: '@FETCH__RESET_PARAMS',
+})

@@ -4,16 +4,9 @@ import { Header, Content, Footer } from 'components/layout'
 import { Logo, Title, Search, ResultsViewer } from 'components'
 
 export class HomePage extends React.PureComponent {
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            movies: []
-        }
-    }
-
     componentDidMount() {
-        const { loadMany } = this.props
+        const { loadMany, resetFetchParams } = this.props
+        resetFetchParams()
         loadMany()
     }
 

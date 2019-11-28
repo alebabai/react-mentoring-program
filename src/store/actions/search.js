@@ -4,3 +4,7 @@ export const updateSearchParams = params => ({
         ...params
     }
 })
+
+export const resetSearchParams = () => ({
+    type: '@SEARCH__RESET_PARAMS',
+})

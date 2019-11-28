@@ -1,6 +1,10 @@
 import { connect } from 'react-redux'
 
-import { loadOne, updateFetchParams } from 'store/actions'
+import {
+    loadOne,
+    updateFetchParams,
+    resetSearchParams,
+} from 'store/actions'
 
 import Component from './MoviePage'
 
@@ -19,7 +23,8 @@ const mapStateToProps = ({
 })
 const mapDispatchToProps = {
     loadOne,
-    updateFetchParams
+    updateFetchParams,
+    resetSearchParams
 }
 
 export const MoviePage = connect(mapStateToProps, mapDispatchToProps)(Component)

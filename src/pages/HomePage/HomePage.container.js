@@ -1,6 +1,11 @@
 import { connect } from 'react-redux'
 
-import { loadMany, updateFetchParams, updateSearchParams } from 'store/actions'
+import {
+    loadMany,
+    updateFetchParams,
+    resetFetchParams,
+    updateSearchParams,
+} from 'store/actions'
 
 import Component from './HomePage'
 
@@ -25,6 +30,7 @@ const mapDispatchToProps = {
     loadMany,
     updateSearchParams,
     updateFetchParams,
+    resetFetchParams,
 }
 
 export const HomePage = connect(mapStateToProps, mapDispatchToProps)(Component)
