@@ -1,12 +1,13 @@
 import { connect } from 'react-redux'
 
-import { loadOne } from 'store/actions/data'
+import { loadOne, updateFetchParams } from 'store/actions'
 
 import Component from './MoviePage'
 
-const mapStateToProps = ({ data: { item, items } }) => ({ item, items })
+const mapStateToProps = ({ data: { item, items }, fetch: { sortBy } }) => ({ item, items, sortBy })
 const mapDispatchToProps = {
-    loadOne
+    loadOne,
+    updateFetchParams
 }
 
 export const MoviePage = connect(mapStateToProps, mapDispatchToProps)(Component)

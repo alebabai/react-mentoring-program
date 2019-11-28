@@ -10,7 +10,7 @@ export class MoviePage extends React.PureComponent {
     }
 
     render() {
-        const { item, items } = this.props
+        const { item, items, sortBy, updateFetchParams } = this.props
         return (
             <>
                 <Header>
@@ -19,7 +19,7 @@ export class MoviePage extends React.PureComponent {
                     <Movie {...item} />
                 </Header>
                 <Content>
-                    <ResultsViewer showSummary={true} summaryText={`Films by following genres: ${item.genres.join(', ')}`} items />
+                    <ResultsViewer showSummary={true} summaryText={`Films by following genres: ${item.genres.join(', ')}`} items={items} sortBy={sortBy} onParamsUpdate={updateFetchParams} />
                 </Content>
                 <Footer>
                     <Logo value="netflixroulette" />
