@@ -1,5 +1,8 @@
-const requestData = () => ({
-    type: '@DATA__REQUEST'
+import { updateFetchParams } from './fetch'
+
+const requestData = options => ({
+    type: '@DATA__REQUEST',
+    payload: options
 })
 
 const loadedOne = item => ({
@@ -19,26 +22,22 @@ const loadingError = error => ({
 })
 
 export const loadMany = options => (dispatch, _, { api }) => {
-    dispatch(requestData())
+    dispatch(requestData(options))
     return api.getMany(options)
-        .then(
-            items => dispatch(loadedMany(items)),
-            error => dispatch(loadingError(error))
-        )
+        .then(({ items, offset, limit, total }) => {
+            dispatch(loadedMany(items))
+            dispatch(updateFetchParams({ offset, limit }))//TODO perform re-calculation for pagination
+        })
+        .catch(error => dispatch(loadingError(error)))
 }
 
 export const loadOne = id => (dispatch, getState, { api }) => {
-    dispatch(requestData())
+    dispatch(requestData({ id }))
     return api.getOne(id)
         .then(item => {
             dispatch(loadedOne(item))
-            const filter = genres.join(',')
-            //TODO dispatch update search/fetch params with filter
-            return api.getMany({ searchBy: 'genres', filter, sortBy: getState().fetch.sortBy })
-        })
-        .then(({ items, offset, limit, total }) => {
-            //TODO dispatch update search/fetch params with offset, limit, total
-            dispatch(loadedMany(items))
+            dispatch(updateFetchParams({ filter: item.genres.join(',') }))
+            dispatch(loadMany(getState().fetch))
         })
         .catch(error => dispatch(loadingError(error)))
 }
