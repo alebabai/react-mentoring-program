@@ -4,7 +4,7 @@ import { updateFetchParams } from 'store/actions/fetch'
 
 import Component from './ResultsViewer'
 
-const mapStateToProps = ({ fetch }) => ({ ...fetch })
+const mapStateToProps = ({ fetch, data: { items } }) => ({ ...fetch, items })
 const mapDispatchToProps = {
     updateParams: updateFetchParams
 }
