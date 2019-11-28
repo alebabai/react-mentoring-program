@@ -19,7 +19,7 @@ exports[`Should match snapshot with all props 1`] = `
       Title
     </div>
     <div
-      className="tab tabActive"
+      className="tab"
       onClick={[Function]}
     >
       genre
