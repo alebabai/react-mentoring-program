@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should match snapshot empty 1`] = `
+<article
+  className="content"
+/>
+`;
+
+exports[`Should match snapshot with children 1`] = `
+<article
+  className="content"
+>
+  <div
+    className="wrapper-1"
+  >
+    <h1>
+      Some title 1
+    </h1>
+  </div>
+  <div
+    className="wrapper-2"
+  >
+    <h1>
+      Some title 2
+    </h1>
+  </div>
+</article>
+`;

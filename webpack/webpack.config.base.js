@@ -49,7 +49,8 @@ module.exports = {
                             localsConvention: 'camelCaseOnly',
                             modules: {
                                 mode: 'local',
-                            }
+                                localIdentName: '[folder]__[local]__[hash:base64:5]',
+                            },
                         },
                     },
                 ],

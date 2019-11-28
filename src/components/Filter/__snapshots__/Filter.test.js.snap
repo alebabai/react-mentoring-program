@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should match snapshot with all props 1`] = `
+<div
+  className="root"
+>
+  <p
+    className="title"
+  >
+    Filter by
+  </p>
+  <div
+    className="tabs"
+  >
+    <div
+      className="tab"
+      onClick={[Function]}
+    >
+      Title
+    </div>
+    <div
+      className="tab tabActive"
+      onClick={[Function]}
+    >
+      genre
+    </div>
+    <div
+      className="tab"
+      onClick={[Function]}
+    >
+      Release date
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Should match snapshot with default props 1`] = `
+<div
+  className="root"
+>
+  <p
+    className="title"
+  >
+    Filter by
+  </p>
+  <div
+    className="tabs"
+  />
+</div>
+`;

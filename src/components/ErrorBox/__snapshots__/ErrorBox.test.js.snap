@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should match snapshot with all props 1`] = `
+<div
+  className="error-box"
+>
+  <h1
+    className="error-box-message"
+  >
+    Something wrong
+  </h1>
+  <p
+    className="error-box-description"
+  >
+    An error happened
+  </p>
+</div>
+`;
+
+exports[`Should match snapshot with default props 1`] = `
+<div
+  className="error-box"
+>
+  <h1
+    className="error-box-message"
+  />
+  <p
+    className="error-box-description"
+  />
+</div>
+`;
