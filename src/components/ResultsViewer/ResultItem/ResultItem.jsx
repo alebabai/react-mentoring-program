@@ -14,7 +14,7 @@ export const ResultItem = ({ id, imageUrl, title, genres, releaseDate }) => (
         </Link>
         <ResultItemTitle value={title} />
         <ResultItemGenres items={genres} />
-        <ResultItemReleaseDate value={releaseDate} />
+        <ResultItemReleaseDate value={new Date(releaseDate).getFullYear()} />
 
     </div>
 )
