@@ -2,45 +2,24 @@ import React from 'react'
 
 import { Header, Content, Footer } from 'components/layout'
 import { Logo, SearchLink, Movie, ResultsViewer } from 'components'
-import { api } from 'services'
 
 export class MoviePage extends React.PureComponent {
-    constructor(props) {
-        super(props)
-        this.state = {
-            movie: {
-                genres: [],
-            },
-            movies: [],
-        }
-    }
-
     componentDidMount() {
-        const { match: { params: { id } }, history } = this.props
-        api.getMovie(id)
-            .then(movie => {
-                this.setState({
-                    movie
-                })
-                return movie.genres
-            })
-            .then(genres => api.getMovies({ searchBy: 'genres', filter: genres.join(',') }))
-            .then(({ data }) => this.setState({ movies: data }))
-            .catch(() => {
-                history.push('/not-found')
-            })
+        const { match: { params: { id } }, loadOne } = this.props
+        loadOne(id)
     }
 
     render() {
+        const { item, items } = this.props
         return (
             <>
                 <Header>
                     <Logo />
                     <SearchLink />
-                    <Movie {...this.state.movie} />
+                    <Movie {...item} />
                 </Header>
                 <Content>
-                    <ResultsViewer showSummary={true} summaryText={`Films by following genres: ${this.state.movie.genres.join(', ')}`} items={this.state.movies} />
+                    <ResultsViewer showSummary={true} summaryText={`Films by following genres: ${item.genres.join(', ')}`} items />
                 </Content>
                 <Footer>
                     <Logo value="netflixroulette" />

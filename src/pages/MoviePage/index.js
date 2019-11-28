@@ -1,2 +1,2 @@
-export { default } from './MoviePage'
-export * from './MoviePage'
+export { default } from './MoviePage.container'
+export * from './MoviePage.container'
