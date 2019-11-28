@@ -4,6 +4,7 @@ import { Filter } from 'components'
 
 import ResultItem from './ResultItem'
 import ResultsSummary from './ResultsSummary'
+import ResultsEmpty from './ResultsEmpty'
 
 const filterTabs = [
     {
@@ -23,7 +24,7 @@ export const ResultsViewer = ({ showSummary = true, summaryText, items = [], sor
             <Filter title="Sort by" activeTab={sortBy} tabs={filterTabs} onTabChange={tabId => onParamsUpdate({ sortBy: tabId })} />
         </div>
         <div className="results-body">
-            {items.map(ResultItem) || <ResultsEmpty />}
+            {items.length ? items.map(ResultItem) : <ResultsEmpty />}
         </div>
     </div>
 )
