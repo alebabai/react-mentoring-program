@@ -1,6 +1,6 @@
 const defaultState = {
     item: {
-        genres: []
+        genres: [],
     },
     items: [],
 }
@@ -12,7 +12,7 @@ export const data = (state = defaultState, { type, payload }) => {
         case '@DATA__LOADED_MANY':
             return { ...state, items: [...payload] }
         default:
-            return state;
+            return state
     }
 }
 
