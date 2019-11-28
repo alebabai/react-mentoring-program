@@ -11,13 +11,17 @@ export class HomePage extends React.PureComponent {
     }
 
     render() {
-        const { items, sortBy, updateFetchParams, searchQuery, searchBy, updateSearchParams, } = this.props
+        const { items, sortBy, updateFetchParams, searchQuery, searchBy, updateSearchParams, loadMany } = this.props
+        const performSearch = () => {
+            updateSearchParams({ active: true })
+            loadMany()
+        }
         return (
             <>
                 <Header>
                     <Logo value="netflixroulette" />
                     <Title value="Find your movie" />
-                    <Search query={searchQuery} searchBy={searchBy} onParamsUpdate={updateSearchParams} />
+                    <Search query={searchQuery} searchBy={searchBy} onParamsUpdate={updateSearchParams} onSearch={performSearch} />
                 </Header>
                 <Content>
                     <ResultsViewer showSummary={false} items={items} sortBy={sortBy} onParamsUpdate={updateFetchParams} />
