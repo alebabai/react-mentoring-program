@@ -4,10 +4,21 @@ import { Header, Content, Footer } from 'components/layout'
 import { Logo, SearchLink, Movie, ResultsViewer } from 'components'
 
 export class MoviePage extends React.PureComponent {
-    componentDidMount() {
+    loadInitialData() {
         const { match: { params: { id } }, loadOne, resetSearchParams } = this.props
         resetSearchParams()
         loadOne(id)
+    }
+
+    componentDidMount() {
+        this.loadInitialData()
+    }
+
+    componentDidUpdate(prevProps) {
+        const { match: { params: { id } } } = this.props
+        if (prevProps.match.params.id !== id) {
+            this.loadInitialData()
+        }
     }
 
     render() {
@@ -19,7 +30,7 @@ export class MoviePage extends React.PureComponent {
         return (
             <>
                 <Header>
-                    <Logo />
+                    <Logo value="netflixroulette"/>
                     <SearchLink />
                     <Movie {...item} />
                 </Header>
