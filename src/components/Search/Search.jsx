@@ -11,8 +11,8 @@ const filterTabs = [
         title: 'Title',
     },
     {
-        id: 'genre',
-        title: 'Genre',
+        id: 'genres',
+        title: 'Genres',
     },
 ]
 
