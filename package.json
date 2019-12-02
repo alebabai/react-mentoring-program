@@ -43,6 +43,7 @@
     "build:prod": "webpack --config webpack/webpack.config.prod.js",
     "build": "npm run build:prod",
     "test": "jest",
+    "test:watch": "jest --watch",
     "test:cypress": "start-server-and-test start http://localhost:8080 cypress",
     "cypress": "cypress run"
   },
