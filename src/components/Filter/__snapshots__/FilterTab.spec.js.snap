@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should match snapshot with all props 1`] = `
+<div
+  className="tab tabActive"
+  onClick={[Function]}
+>
+  Genres
+</div>
+`;
+
+exports[`Should match snapshot with partial props 1`] = `
+<div
+  className="tab"
+  onClick={[Function]}
+>
+  genres
+</div>
+`;

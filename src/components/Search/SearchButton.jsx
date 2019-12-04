@@ -9,7 +9,7 @@ export const SearchButton = ({ text }) => (
 )
 
 SearchButton.defaultProps = {
-    text: 'Search'
+    text: 'Search',
 }
 
 export default SearchButton

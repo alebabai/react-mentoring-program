@@ -7,10 +7,14 @@ const MovieMetaItem = ({ count, unit }) => (
     </div>
 )
 
-export const MovieMeta = ({ items = [] }) => (
+export const MovieMeta = ({ items }) => (
     <div className="movie-meta">
         {items.map(MovieMetaItem)}
     </div>
 )
+
+MovieMeta.defaultProps = {
+    items: [],
+}
 
 export default MovieMeta

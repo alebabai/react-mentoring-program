@@ -17,7 +17,7 @@ const filterTabs = [
     },
 ]
 
-export const ResultsViewer = ({ showSummary = true, summaryText, items = [], sortBy, onParamsUpdate }) => (
+export const ResultsViewer = ({ showSummary, summaryText, items, sortBy, onParamsUpdate }) => (
     <div className="results-viewer">
         <div className="results-header">
             {showSummary && <ResultsSummary number={items.length} text={summaryText} />}
@@ -28,5 +28,10 @@ export const ResultsViewer = ({ showSummary = true, summaryText, items = [], sor
         </div>
     </div>
 )
+
+ResultsViewer.defaultProps = {
+    showSummary: true,
+    items = [],
+}
 
 export default ResultsViewer

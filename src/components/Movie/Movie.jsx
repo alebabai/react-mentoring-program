@@ -6,7 +6,7 @@ import MovieRating from './MovieRating'
 import MovieMeta from './MovieMeta'
 import MovieDescription from './MovieDescription'
 
-export const Movie = ({ id, imageUrl, title, tagline, description, rating, meta = [] }) => (
+export const Movie = ({ id, imageUrl, title, tagline, description, rating, meta }) => (
     <div key={id} className="movie">
         <MovieCover src={imageUrl} />
         <MovieTitle value={title} extra={tagline} />
