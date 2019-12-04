@@ -2,33 +2,33 @@ import React from 'react'
 
 import { Header, Content, Footer } from 'components/layout'
 import { Logo, Title, Search, ResultsViewer } from 'components'
-import { api } from 'services'
 
 export class HomePage extends React.PureComponent {
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            movies: []
-        }
-    }
-
     componentDidMount() {
-        api.getMovies({}).then(({ data }) => this.setState({
-            movies: data
-        }))
+        const { loadMany, resetFetchParams } = this.props
+        resetFetchParams()
+        loadMany()
     }
 
     render() {
+        const { items, sortBy, updateFetchParams, searchQuery, searchBy, updateSearchParams, loadMany } = this.props
+        const performSearch = () => {
+            updateSearchParams({ active: true })
+            loadMany()
+        }
+        const updateParamsAndReload = params => {
+            updateFetchParams(params)
+            loadMany()
+        }
         return (
             <>
                 <Header>
                     <Logo value="netflixroulette" />
                     <Title value="Find your movie" />
-                    <Search />
+                    <Search query={searchQuery} searchBy={searchBy} onParamsUpdate={updateSearchParams} onSearch={performSearch} />
                 </Header>
                 <Content>
-                    <ResultsViewer isSearch={false} items={this.state.movies} />
+                    <ResultsViewer showSummary={false} items={items} sortBy={sortBy} onParamsUpdate={updateParamsAndReload} />
                 </Content>
                 <Footer>
                     <Logo value="netflixroulette" />

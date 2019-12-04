@@ -4,6 +4,7 @@ import { Filter } from 'components'
 
 import ResultItem from './ResultItem'
 import ResultsSummary from './ResultsSummary'
+import ResultsEmpty from './ResultsEmpty'
 
 const filterTabs = [
     {
@@ -16,14 +17,14 @@ const filterTabs = [
     },
 ]
 
-export const ResultsViewer = ({ isSearch = true, summary, items = [] }) => (
+export const ResultsViewer = ({ showSummary = true, summaryText, items = [], sortBy, onParamsUpdate }) => (
     <div className="results-viewer">
         <div className="results-header">
-            {isSearch && <ResultsSummary number={items.length} text={summary} />}
-            <Filter title="Sort by" defaultActiveTab="release_date" tabs={filterTabs} />
+            {showSummary && <ResultsSummary number={items.length} text={summaryText} />}
+            <Filter title="Sort by" activeTab={sortBy} tabs={filterTabs} onTabChange={tabId => onParamsUpdate({ sortBy: tabId })} />
         </div>
         <div className="results-body">
-            {items.map(ResultItem) || <ResultsEmpty />}
+            {items.length ? items.map(ResultItem) : <ResultsEmpty />}
         </div>
     </div>
 )

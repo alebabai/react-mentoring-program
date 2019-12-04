@@ -11,21 +11,17 @@ const filterTabs = [
         title: 'Title',
     },
     {
-        id: 'genre',
-        title: 'Genre',
+        id: 'genres',
+        title: 'Genres',
     },
 ]
 
-export class Search extends React.PureComponent {
-    render() {
-        return (
-            <div className="search">
-                <SearchInput />
-                <SearchButton />
-                <Filter title="Search by" defaultActiveTab="title" tabs={filterTabs} />
-            </div>
-        )
-    }
-}
+export const Search = ({ query, onParamsUpdate, searchBy, onSearch }) => (
+    <div className="search">
+        <SearchInput placeholder="Search..." value={query} onChange={query => onParamsUpdate({ query })} onEnterKeyDown={onSearch} />
+        <SearchButton onClick={onSearch} />
+        <Filter title="Search by" activeTab={searchBy} tabs={filterTabs} onTabChange={tabId => onParamsUpdate({ searchBy: tabId })} />
+    </div>
+)
 
 export default Search

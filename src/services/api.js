@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const processResponse = ({ data }) => data
-const transformMovie = ({
+const transformItem = ({
     id,
     title,
     tagline,
@@ -36,16 +36,16 @@ class Api {
         })
     }
 
-    getMovies(options) {
-        return this.client.get('/movies', { params: { ...options } })
-            .then(processResponse)
-            .then(res => ({ ...res, data: res.data.map(transformMovie) }))
-    }
-
-    getMovie(id) {
+    getOne(id) {
         return this.client.get(`/movies/${id}`)
             .then(processResponse)
-            .then(transformMovie)
+            .then(transformItem)
+    }
+
+    getMany(options) {
+        return this.client.get('/movies', { params: { ...options } })
+            .then(processResponse)
+            .then(({ data, offset, limit, total }) => ({ items: data.map(transformItem), offset, limit, total }))
     }
 }
 

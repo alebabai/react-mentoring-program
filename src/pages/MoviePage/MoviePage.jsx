@@ -2,43 +2,40 @@ import React from 'react'
 
 import { Header, Content, Footer } from 'components/layout'
 import { Logo, SearchLink, Movie, ResultsViewer } from 'components'
-import { api } from 'services'
 
 export class MoviePage extends React.PureComponent {
-    constructor(props) {
-        super(props)
-        this.state = {
-            movie: {},
-            movies: []
-        }
+    loadInitialData() {
+        const { match: { params: { id } }, loadOne, resetSearchParams } = this.props
+        resetSearchParams()
+        loadOne(id)
     }
 
     componentDidMount() {
-        const { match: { params: { id } }, history } = this.props
-        api.getMovie(id)
-            .then(movie => {
-                this.setState({
-                    movie
-                })
-                return movie.genres
-            })
-            .then(genres => api.getMovies({ searchBy: 'genres', filter: genres.join(',') }))
-            .then(({ data }) => this.setState({ movies: data }))
-            .catch(() => {
-                history.push('/not-found')
-            })
+        this.loadInitialData()
+    }
+
+    componentDidUpdate(prevProps) {
+        const { match: { params: { id } } } = this.props
+        if (prevProps.match.params.id !== id) {
+            this.loadInitialData()
+        }
     }
 
     render() {
+        const { item, items, sortBy, loadOne, updateFetchParams } = this.props
+        const updateParamsAndReload = params => {
+            updateFetchParams(params)
+            loadOne(item.id)
+        }
         return (
             <>
                 <Header>
-                    <Logo />
+                    <Logo value="netflixroulette"/>
                     <SearchLink />
-                    <Movie {...this.state.movie} />
+                    <Movie {...item} />
                 </Header>
                 <Content>
-                    <ResultsViewer isSearch={false} summary={`Films by following genres: ${this.state.movie.genres.join(', ')}`} items={this.state.movies} />
+                    <ResultsViewer showSummary={true} summaryText={`Films by following genres: ${item.genres.join(', ')}`} items={items} sortBy={sortBy} onParamsUpdate={updateParamsAndReload} />
                 </Content>
                 <Footer>
                     <Logo value="netflixroulette" />

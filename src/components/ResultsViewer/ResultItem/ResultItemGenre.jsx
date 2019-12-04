@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const ResultItemGenres = ({ items = [] }) => (
-    <h3 className="result-item-genres">{items.join(', ')}</h3>
+    <p className="result-item-genres">{items.join(', ')}</p>
 )
 
 export default ResultItemGenres

@@ -65,6 +65,7 @@ module.exports = {
             components: resolve('src/components/'),
             pages: resolve('src/pages/'),
             services: resolve('src/services/'),
+            store: resolve('src/store/'),
         },
         extensions: ['.jsx', '.js'],
     },
