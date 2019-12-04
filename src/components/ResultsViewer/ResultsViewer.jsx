@@ -31,7 +31,7 @@ export const ResultsViewer = ({ showSummary, summaryText, items, sortBy, onParam
 
 ResultsViewer.defaultProps = {
     showSummary: true,
-    items = [],
+    items: [],
 }
 
 export default ResultsViewer
