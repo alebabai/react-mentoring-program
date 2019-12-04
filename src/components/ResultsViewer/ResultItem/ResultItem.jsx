@@ -7,8 +7,10 @@ import ResultItemTitle from './ResultItemTitle'
 import ResultItemGenres from './ResultItemGenre'
 import ResultItemReleaseDate from './ResultItemReleaseDate'
 
+import style from '../style.css'
+
 export const ResultItem = ({ id, imageUrl, title, genres, releaseDate }) => (
-    <div key={id} className="result-item">
+    <div key={id} className={style.item}>
         <Link to={`/movies/${id}`}>
             <ResultItemImage src={imageUrl} />
         </Link>

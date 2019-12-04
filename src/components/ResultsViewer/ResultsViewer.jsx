@@ -6,6 +6,8 @@ import ResultItem from './ResultItem'
 import ResultsSummary from './ResultsSummary'
 import ResultsEmpty from './ResultsEmpty'
 
+import style from './style.css'
+
 const filterTabs = [
     {
         id: 'release_date',
@@ -18,12 +20,12 @@ const filterTabs = [
 ]
 
 export const ResultsViewer = ({ showSummary, summaryText, items, sortBy, onParamsUpdate }) => (
-    <div className="results-viewer">
+    <div className={style.root}>
         <div className="results-header">
             {showSummary && <ResultsSummary number={items.length} text={summaryText} />}
             <Filter title="Sort by" activeTab={sortBy} tabs={filterTabs} onTabChange={tabId => onParamsUpdate({ sortBy: tabId })} />
         </div>
-        <div className="results-body">
+        <div className={style.content}>
             {items.length ? items.map(ResultItem) : <ResultsEmpty />}
         </div>
     </div>
