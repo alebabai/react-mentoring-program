@@ -29,7 +29,7 @@ const transformItem = ({
     genres
 })
 
-class Api {
+export class Api {
     constructor({ baseUrl }) {
         this.client = axios.create({
             baseURL: baseUrl,
@@ -49,8 +49,4 @@ class Api {
     }
 }
 
-export const instance = new Api({
-    baseUrl: process.env.API_BASE_URL
-})
-
-export default instance
+export default Api
