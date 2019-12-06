@@ -57,7 +57,7 @@ export const loadMany = () => (dispatch, getState, { api }) => {
     const options = search.active ? { ...fetch, ...search, search: search.query } : { ...fetch }
     dispatch(requestData(options))
     return api.getMany(options)
-        .then(({ items, offset, limit, total }) => {
+        .then(({ items, offset, limit, /* total */ }) => {
             dispatch(loadedMany(items))
             dispatch(updateFetchParams({ offset, limit }))//TODO perform re-calculation for pagination
         })

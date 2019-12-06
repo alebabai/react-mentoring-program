@@ -8,7 +8,6 @@ import store from 'store'
 
 import { root } from './style.css'
 
-
 export const App = () => (
     <div className={root}>
         <Provider store={store}>

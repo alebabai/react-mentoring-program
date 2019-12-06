@@ -48,3 +48,12 @@ test('Should create bunch of async actions to load one item', () => {
         expect(actions[5].type).toEqual('@FETCH__UPDATE_PARAMS')
     })
 })
+
+test('Should create bunch of async actions to load many item', () => {
+    store.dispatch(loadMany().then(() => {
+        const actions = store.getActions()
+        expect(actions[0].type).toEqual('@DATA__REQUEST')
+        expect(actions[1].type).toEqual('@DATA__LOADED_MANY')
+        expect(actions[2].type).toEqual('@FETCH__UPDATE_PARAMS')
+    }))
+})
