@@ -24,7 +24,7 @@ const mapStateToProps = ({
 const mapDispatchToProps = {
     loadOne,
     updateFetchParams,
-    resetSearchParams
+    resetSearchParams,
 }
 
 export const MoviePage = connect(mapStateToProps, mapDispatchToProps)(Component)

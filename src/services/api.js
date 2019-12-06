@@ -26,7 +26,7 @@ const transformItem = ({
     budget,
     revenue,
     runtime,
-    genres
+    genres,
 })
 
 export class Api {
@@ -45,7 +45,11 @@ export class Api {
     getMany(options) {
         return this.client.get('/movies', { params: { ...options } })
             .then(processResponse)
-            .then(({ data, offset, limit, total }) => ({ items: data.map(transformItem), offset, limit, total }))
+            .then(({
+                data, offset, limit, total,
+            }) => ({
+                items: data.map(transformItem), offset, limit, total,
+            }))
     }
 }
 

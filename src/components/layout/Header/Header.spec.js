@@ -1,13 +1,13 @@
 import React from 'react'
+import renderer from 'react-test-renderer'
 
 import Header from './Header'
 
-import renderer from 'react-test-renderer';
 
 describe('Should match snapshot', () => {
     test('empty', () => {
         const component = renderer.create(
-            <Header />
+            <Header />,
         )
         expect(component.toJSON()).toMatchSnapshot()
     })
@@ -21,9 +21,8 @@ describe('Should match snapshot', () => {
                 <div className="wrapper-2">
                     <h1>Some title 2</h1>
                 </div>
-            </Header>
+            </Header>,
         )
         expect(component.toJSON()).toMatchSnapshot()
     })
 })
-

@@ -1,8 +1,8 @@
-export const updateSearchParams = params => ({
+export const updateSearchParams = (params) => ({
     type: '@SEARCH__UPDATE_PARAMS',
     payload: {
-        ...params
-    }
+        ...params,
+    },
 })
 
 export const resetSearchParams = () => ({

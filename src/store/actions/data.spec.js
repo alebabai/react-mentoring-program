@@ -5,11 +5,13 @@ import { loadOne, loadMany } from './data'
 
 const data = [{ id: '1', genres: [] }, { id: '2', genres: [] }, { id: '3', genres: [] }]
 const apiMock = {
-    getOne: id => Promise.resolve(data.find(item => item.id === id)),
-    getMany: () => Promise.resolve({ items: data, offset: 0, limit: 10, total: data.length }),
+    getOne: (id) => Promise.resolve(data.find((item) => item.id === id)),
+    getMany: () => Promise.resolve({
+        items: data, offset: 0, limit: 10, total: data.length,
+    }),
 }
 const mockStore = configureMockStore([
-    thunk.withExtraArgument({ api: apiMock })
+    thunk.withExtraArgument({ api: apiMock }),
 ])
 
 let store
@@ -19,7 +21,7 @@ beforeEach(() => {
         search: {
             query: '',
             searchBy: 'title',
-            active: false
+            active: false,
         },
         fetch: {
             sortBy: 'release_date',

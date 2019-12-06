@@ -1,24 +1,24 @@
 import { updateFetchParams } from './fetch'
 
-const requestData = options => ({
+const requestData = (options) => ({
     type: '@DATA__REQUEST',
-    payload: options
+    payload: options,
 })
 
-const loadedOne = item => ({
+const loadedOne = (item) => ({
     type: '@DATA__LOADED_ONE',
-    payload: item
+    payload: item,
 })
 
-const loadedMany = items => ({
+const loadedMany = (items) => ({
     type: '@DATA__LOADED_MANY',
-    payload: items
+    payload: items,
 })
 
-const loadingError = error => ({
+const loadingError = (error) => ({
     type: '@DATA__LOADING_ERROR',
     payload: error,
-    error: true
+    error: true,
 })
 
 const transformItem = ({
@@ -30,7 +30,7 @@ const transformItem = ({
     voteAverage,
     imageUrl,
     runtime,
-    genres
+    genres,
 }) => ({
     id,
     title,
@@ -57,21 +57,22 @@ export const loadMany = () => (dispatch, getState, { api }) => {
     const options = search.active ? { ...fetch, ...search, search: search.query } : { ...fetch }
     dispatch(requestData(options))
     return api.getMany(options)
-        .then(({ items, offset, limit, /* total */ }) => {
+        .then(({ items, offset, limit /* total */ }) => {
             dispatch(loadedMany(items))
-            dispatch(updateFetchParams({ offset, limit }))//TODO perform re-calculation for pagination
+            // TODO perform re-calculation for pagination
+            dispatch(updateFetchParams({ offset, limit }))
         })
-        .catch(error => dispatch(loadingError(error)))
+        .catch((error) => dispatch(loadingError(error)))
 }
 
-export const loadOne = id => (dispatch, _, { api }) => {
+export const loadOne = (id) => (dispatch, _, { api }) => {
     dispatch(requestData({ id }))
     return api.getOne(id)
         .then(transformItem)
-        .then(item => {
+        .then((item) => {
             dispatch(loadedOne(item))
             dispatch(updateFetchParams({ filter: item.genres.join(',') }))
             dispatch(loadMany())
         })
-        .catch(error => dispatch(loadingError(error)))
+        .catch((error) => dispatch(loadingError(error)))
 }

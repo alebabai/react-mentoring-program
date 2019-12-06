@@ -1,7 +1,7 @@
 const defaultState = {
     query: '',
     searchBy: 'title',
-    active: false
+    active: false,
 }
 
 export const search = (state = defaultState, { type, payload }) => {
