@@ -18,7 +18,7 @@ const mapStateToProps = ({
     },
 }) => ({
     item,
-    items,
+    items: items.filter(({ id }) => id !== item.id),
     sortBy,
 })
 const mapDispatchToProps = {
