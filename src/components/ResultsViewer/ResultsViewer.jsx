@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Filter } from 'components'
+import { Filter, Pagination } from 'components'
 
 import ResultItem from './ResultItem'
 import ResultsSummary from './ResultsSummary'
@@ -19,7 +19,7 @@ const filterTabs = [
     },
 ]
 
-export const ResultsViewer = ({ showSummary, summaryText, items, sortBy, onParamsChange }) => (
+export const ResultsViewer = ({ showSummary, summaryText, items, sortBy, limit, offset, total, onParamsChange }) => (
     <div className={style.root}>
         <div className="results-header">
             {showSummary && <ResultsSummary number={items.length} text={summaryText} />}
@@ -28,6 +28,7 @@ export const ResultsViewer = ({ showSummary, summaryText, items, sortBy, onParam
         <div className={style.content}>
             {items.length ? items.map(ResultItem) : <ResultsEmpty />}
         </div>
+        <Pagination current={Math.floor(offset / limit) || 1} pages={Math.floor(total / limit) - 1 || 1} onPageChange={(page) => onParamsChange({ offset: page * limit })} />
     </div>
 )
 

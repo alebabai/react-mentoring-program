@@ -15,11 +15,17 @@ const mapStateToProps = ({
     },
     fetch: {
         sortBy,
+        limit,
+        offset,
+        total,
     },
 }) => ({
     item,
     items: items.filter(({ id }) => id !== item.id),
     sortBy,
+    limit,
+    offset,
+    total,
 })
 const mapDispatchToProps = {
     loadOne,

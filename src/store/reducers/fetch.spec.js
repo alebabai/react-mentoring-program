@@ -4,8 +4,9 @@ const defaultState = {
     sortBy: 'release_date',
     sortOrder: 'asc',
     filter: undefined,
-    offset: undefined,
-    limit: undefined,
+    limit: 15,
+    offset: 0,
+    total: 15,
 }
 
 test('should return the initial state', () => {
