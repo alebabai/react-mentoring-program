@@ -28,7 +28,7 @@ export const ResultsViewer = ({ showSummary, summaryText, items, sortBy, limit, 
         <div className={style.content}>
             {items.length ? items.map(ResultItem) : <ResultsEmpty />}
         </div>
-        <Pagination current={Math.floor(offset / limit) || 1} pages={Math.floor(total / limit) - 1 || 1} onPageChange={(page) => onParamsChange({ offset: page * limit })} />
+        <Pagination current={Math.floor(offset / limit) || 1} pages={Math.floor(total / limit) > 2 ? Math.floor(total / limit) - 1 : 1} onPageChange={(page) => onParamsChange({ offset: page * limit })} />
     </div>
 )
 
