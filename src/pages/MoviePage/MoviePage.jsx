@@ -35,7 +35,7 @@ export class MoviePage extends React.PureComponent {
                     <Movie {...item} />
                 </Header>
                 <Content>
-                    <ResultsViewer showSummary={true} summaryText={`Films by following genres: ${item.genres.join(', ')}`} items={items} sortBy={sortBy} onParamsUpdate={updateParamsAndReload} />
+                    <ResultsViewer showSummary={true} summaryText={`Films by following genres: ${item.genres.join(', ')}`} items={items} sortBy={sortBy} onParamsChange={updateParamsAndReload} />
                 </Content>
                 <Footer>
                     <Logo value="netflixroulette" />

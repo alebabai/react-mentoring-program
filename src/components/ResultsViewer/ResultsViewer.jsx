@@ -19,11 +19,11 @@ const filterTabs = [
     },
 ]
 
-export const ResultsViewer = ({ showSummary, summaryText, items, sortBy, onParamsUpdate }) => (
+export const ResultsViewer = ({ showSummary, summaryText, items, sortBy, onParamsChange }) => (
     <div className={style.root}>
         <div className="results-header">
             {showSummary && <ResultsSummary number={items.length} text={summaryText} />}
-            <Filter title="Sort by" activeTab={sortBy} tabs={filterTabs} onTabChange={tabId => onParamsUpdate({ sortBy: tabId })} />
+            <Filter title="Sort by" activeTab={sortBy} tabs={filterTabs} onTabChange={tabId => onParamsChange({ sortBy: tabId })} />
         </div>
         <div className={style.content}>
             {items.length ? items.map(ResultItem) : <ResultsEmpty />}

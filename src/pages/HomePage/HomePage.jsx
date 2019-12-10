@@ -25,10 +25,10 @@ export class HomePage extends React.PureComponent {
                 <Header>
                     <Logo value="netflixroulette" />
                     <Title value="Find your movie" />
-                    <Search query={searchQuery} searchBy={searchBy} onParamsUpdate={updateSearchParams} onSearch={performSearch} />
+                    <Search query={searchQuery} searchBy={searchBy} onParamsChange={updateSearchParams} onSearch={performSearch} />
                 </Header>
                 <Content>
-                    <ResultsViewer showSummary={false} items={items} sortBy={sortBy} onParamsUpdate={updateParamsAndReload} />
+                    <ResultsViewer showSummary={false} items={items} sortBy={sortBy} onParamsChange={updateParamsAndReload} />
                 </Content>
                 <Footer>
                     <Logo value="netflixroulette" />
