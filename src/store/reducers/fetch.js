@@ -2,7 +2,7 @@ const defaultState = {
     sortBy: 'release_date',
     sortOrder: 'desc',
     filter: undefined,
-    limit: 100,
+    limit: 20,
     offset: 0,
     total: 0,
 }
