@@ -1,4 +1,4 @@
-import { updateFetchParams } from './fetch'
+import { updateFetchParams, resetFetchParams } from './fetch'
 
 const requestData = (options) => ({
     type: '@DATA__REQUEST',
@@ -70,6 +70,7 @@ export const loadOne = (id) => (dispatch, _, { api }) => {
         .then(transformItem)
         .then((item) => {
             dispatch(loadedOne(item))
+            dispatch(resetFetchParams())
             dispatch(updateFetchParams({ filter: item.genres.join(',') }))
             dispatch(loadMany())
         })
