@@ -1,6 +1,6 @@
 const defaultState = {
     sortBy: 'release_date',
-    sortOrder: 'asc',
+    sortOrder: 'desc',
     filter: undefined,
     limit: 100,
     offset: 0,
