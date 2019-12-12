@@ -22,7 +22,7 @@ export class MoviePage extends React.PureComponent {
     }
 
     render() {
-        const { item, items, sortBy, loadOne, updateFetchParams } = this.props
+        const { item, items, sortBy, limit, offset, total, loadOne, updateFetchParams } = this.props
         const updateParamsAndReload = params => {
             updateFetchParams(params)
             loadOne(item.id)
@@ -35,7 +35,7 @@ export class MoviePage extends React.PureComponent {
                     <Movie {...item} />
                 </Header>
                 <Content>
-                    <ResultsViewer showSummary={true} summaryText={`Films by following genres: ${item.genres.join(', ')}`} items={items} sortBy={sortBy} onParamsChange={updateParamsAndReload} />
+                    <ResultsViewer showSummary={true} summaryText={`Films by following genres: ${item.genres.join(', ')}`} items={items} sortBy={sortBy} limit={limit} offset={offset} total={total} onParamsChange={updateParamsAndReload} />
                 </Content>
                 <Footer>
                     <Logo value="netflixroulette" />

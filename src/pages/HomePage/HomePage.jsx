@@ -11,12 +11,12 @@ export class HomePage extends React.PureComponent {
     }
 
     render() {
-        const { items, sortBy, updateFetchParams, searchQuery, searchBy, updateSearchParams, loadMany } = this.props
+        const { items, sortBy, limit, offset, total, updateFetchParams, searchQuery, searchBy, updateSearchParams, loadMany } = this.props
         const performSearch = () => {
             updateSearchParams({ active: true })
             loadMany()
         }
-        const updateParamsAndReload = params => {
+        const updateParamsAndReload = (params) => {
             updateFetchParams(params)
             loadMany()
         }
@@ -28,7 +28,7 @@ export class HomePage extends React.PureComponent {
                     <Search query={searchQuery} searchBy={searchBy} onParamsChange={updateSearchParams} onSearch={performSearch} />
                 </Header>
                 <Content>
-                    <ResultsViewer showSummary={false} items={items} sortBy={sortBy} onParamsChange={updateParamsAndReload} />
+                    <ResultsViewer showSummary={false} items={items} sortBy={sortBy} limit={limit} offset={offset} total={total} onParamsChange={updateParamsAndReload} />
                 </Content>
                 <Footer>
                     <Logo value="netflixroulette" />
