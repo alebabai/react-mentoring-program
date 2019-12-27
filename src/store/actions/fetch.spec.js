@@ -21,4 +21,3 @@ test('Should create action to reset params', () => {
     }
     expect(resetFetchParams()).toEqual(expectedAction)
 })
-

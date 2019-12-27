@@ -4,10 +4,11 @@ import { Provider } from 'react-redux'
 
 import { ErrorBoundary } from 'components'
 import { HomePage, MoviePage, ErrorPage } from 'pages'
-import store from 'store'
+import { configureStore } from 'store'
 
 import { root } from './style.css'
 
+const store = configureStore()
 
 export const App = () => (
     <div className={root}>

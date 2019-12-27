@@ -16,8 +16,8 @@ test('should handle load one action', () => {
     expect(
         reducer(defaultState, {
             type: '@DATA__LOADED_ONE',
-            payload: item
-        })
+            payload: item,
+        }),
     ).toEqual({
         ...defaultState,
         item,
@@ -27,16 +27,15 @@ test('should handle load one action', () => {
 test('should handle load many action', () => {
     const items = [
         { id: '1', genres: [] },
-        { id: '2', genres: [] }
+        { id: '2', genres: [] },
     ]
     expect(
         reducer(defaultState, {
             type: '@DATA__LOADED_MANY',
-            payload: items
-        })
+            payload: items,
+        }),
     ).toEqual({
         ...defaultState,
         items,
     })
 })
-

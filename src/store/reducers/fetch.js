@@ -1,9 +1,10 @@
 const defaultState = {
     sortBy: 'release_date',
-    sortOrder: 'asc',
+    sortOrder: 'desc',
     filter: undefined,
-    offset: undefined,
-    limit: undefined,
+    limit: 20,
+    offset: 0,
+    total: 0,
 }
 
 export const fetch = (state = defaultState, { type, payload }) => {

@@ -19,9 +19,15 @@ const mapStateToProps = ({
     },
     fetch: {
         sortBy,
+        limit,
+        offset,
+        total,
     },
 }) => ({
     items,
+    limit,
+    offset,
+    total,
     searchBy,
     searchQuery: query,
     sortBy,

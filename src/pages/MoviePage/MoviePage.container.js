@@ -15,16 +15,22 @@ const mapStateToProps = ({
     },
     fetch: {
         sortBy,
+        limit,
+        offset,
+        total,
     },
 }) => ({
     item,
-    items,
+    items: items.filter(({ id }) => id !== item.id),
     sortBy,
+    limit,
+    offset,
+    total,
 })
 const mapDispatchToProps = {
     loadOne,
     updateFetchParams,
-    resetSearchParams
+    resetSearchParams,
 }
 
 export const MoviePage = connect(mapStateToProps, mapDispatchToProps)(Component)

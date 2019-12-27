@@ -1,8 +1,8 @@
 import React from 'react'
+import renderer from 'react-test-renderer'
 
 import Filter from './Filter'
 
-import renderer from 'react-test-renderer';
 
 const props = {
     title: 'Filter by',
@@ -25,16 +25,15 @@ const props = {
 describe('Should match snapshot', () => {
     test('with default props', () => {
         const component = renderer.create(
-            <Filter />
+            <Filter />,
         )
         expect(component.toJSON()).toMatchSnapshot()
     })
 
     test('with all props', () => {
         const component = renderer.create(
-            <Filter {...props} />
+            <Filter {...props} />,
         )
         expect(component.toJSON()).toMatchSnapshot()
     })
 })
-

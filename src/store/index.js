@@ -2,19 +2,23 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 
+import { Api } from 'services'
 import * as reducers from './reducers'
-import { api } from 'services'
+
 
 const loggerMiddleware = createLogger()
+const api = new Api({
+    baseUrl: process.env.API_BASE_URL,
+})
 
-export const store = createStore(
+export const configureStore = () => createStore(
     combineReducers({
         ...reducers,
     }),
     applyMiddleware(
         loggerMiddleware,
-        thunk.withExtraArgument({ api })
-    )
+        thunk.withExtraArgument({ api }),
+    ),
 )
 
-export default store
+export default configureStore

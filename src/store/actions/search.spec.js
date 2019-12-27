@@ -4,7 +4,7 @@ test('Should create action to update params', () => {
     const params = {
         query: 'Fight CLub',
         searchBy: 'title',
-        active: false
+        active: false,
     }
     const expectedAction = {
         type: '@SEARCH__UPDATE_PARAMS',

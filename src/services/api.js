@@ -26,10 +26,10 @@ const transformItem = ({
     budget,
     revenue,
     runtime,
-    genres
+    genres,
 })
 
-class Api {
+export class Api {
     constructor({ baseUrl }) {
         this.client = axios.create({
             baseURL: baseUrl,
@@ -45,12 +45,12 @@ class Api {
     getMany(options) {
         return this.client.get('/movies', { params: { ...options } })
             .then(processResponse)
-            .then(({ data, offset, limit, total }) => ({ items: data.map(transformItem), offset, limit, total }))
+            .then(({
+                data, offset, limit, total,
+            }) => ({
+                items: data.map(transformItem), offset, limit, total,
+            }))
     }
 }
 
-export const instance = new Api({
-    baseUrl: process.env.API_BASE_URL
-})
-
-export default instance
+export default Api
